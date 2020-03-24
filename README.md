@@ -1,12 +1,18 @@
 
 ## Covid 19 App - Map, info & help
-  
+
+![](https://i.imgur.com/7xqYm47.png)
+
 See the latest Covid 19 cases in more than 200 countries. 🌎
 
 Also find out about the symptoms of this virus to take the necessary precautions and have an emergency guide at hand in case you suspect you are infected or someone close to you is.
 
 Download app here  👉 [https://appcoronavirus.com](https://appcoronavirus.com)
-  
+
+### Why the application is not in the Play Store? 🚀  
+
+Being an informative app of covid19, which is a tragic event in the world, reporting confirmed, low and recovered, apparently we did not comply with the policies of sensitive events of Google Play, so they suspended and eliminated the application :(  
+
 ### Getting Started 🚀  
   
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.  
