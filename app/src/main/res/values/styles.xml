@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="WhiteTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="GrayTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/gray</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="HomeTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="SearchTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <!-- Styles -->
+
+    <style name="ToolbarTextAppearance">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+    <style name="NavigationViewTextAppearance">
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

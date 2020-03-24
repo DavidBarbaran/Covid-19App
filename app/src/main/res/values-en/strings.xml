@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Covid 19</string>
+
+    <string name="splash_title">Covid 19</string>
+    <string name="splash_message">Stay informed,\nthe best way to prevent.</string>
+    <string name="retry">Retry</string>
+
+    <string name="home_bottom_dialog_title">Coronavirus COVID-19 Global Cases</string>
+    <string name="home_bottom_country_title">COVID-19 Cases in %1$s</string>
+
+    <string name="death_total">Total\ncasualties</string>
+    <string name="confirmed_total">Total\nconfirmed</string>
+    <string name="recovered_total">Total\nrecovered</string>
+    <string name="update_at">Update at %1$s</string>
+
+    <string name="symptoms">Symptoms</string>
+    <string name="fever">Fever</string>
+    <string name="cough">Dry cough</string>
+    <string name="difficulty_breathing">Difficulty\nbreathing</string>
+    <string name="runny_nose">Nasal\nsecretions</string>
+    <string name="sore_throat">Throat\npain</string>
+
+    <string name="scare_virus">Learn about the symptoms of Covid 19</string>
+    <string name="consult_now">Consult now</string>
+    <string name="consult_message">Take your precautions and don\'t ignore the symptoms. See what the symptoms are today.</string>
+
+    <string name="search_hint">Search…</string>
+    <string name="your_location">Your location</string>
+
+    <string name="emergency_guide">Emergency guide</string>
+    <string name="know_more">Know more</string>
+
+    <string name="scare_emergency">Avoid the spread of Covid 19</string>
+    <string name="scare_emergency_message">If you suspect that you are infected or someone close to you, see what are the appropriate measures to take.</string>
+
+    <string name="email_message">Send email to appolog.apps@gmail.com</string>
+
+    <!-- Error message -->
+    <string name="network_error_message">Please check your internet connection and try again.</string>
+    <string name="default_error_message">An error occurred, please try again.</string>
+
+    <!-- Menu -->
+    <string name="menu_global_cases">Global cases</string>
+    <string name="menu_symptoms">Symptoms</string>
+    <string name="menu_emergency_guide">Emergency guide</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="menu_credits">Credits</string>
+    <string name="menu_contact">Contact</string>
+
+    <!-- Symptoms -->
+    <string name="symptoms_title_1">What is COVID-19?</string>
+    <string name="symptoms_desc_1">COVID-19 is the most recently discovered infectious disease caused by the coronavirus. Both the new virus and the disease were unknown before the outbreak in Wuhan, China, in December 2019.</string>
+    <string name="symptoms_title_2">What are the symptoms of COVID-19?</string>
+    <string name="symptoms_desc_2">The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may experience pain, nasal congestion, runny nose, sore throat, or diarrhea. These symptoms are usually mild and appear gradually. Some people become infected but do not develop any symptoms and are not ill. Most people (about 80%) recover from the disease without needing any special treatment. About 1 in 6 people who get COVID-19 develop a serious illness and have trouble breathing. Older people and those with underlying medical conditions, such as high blood pressure, heart problems, or diabetes, are more likely to develop serious illness. About 2% of people who have contracted the disease have died. People with fever, cough, and shortness of breath should seek medical attention.</string>
+    <string name="symptoms_title_3">Do you suspect that you or someone close to you may be infected?</string>
+
+    <!-- Feedback -->
+    <string name="feedback_send">Send</string>
+    <string name="feedback_hint_email">Email</string>
+    <string name="feedback_hint_feedback">Write your feedback here</string>
+    <string name="feedback_email_error">Enter a valid email</string>
+    <string name="feedback_feedback_error">Enter a feedback</string>
+    <string name="feedback_send_successful">Your feedback was sent. Thanks!</string>
+
+    <!-- Emergency -->
+    <string name="emergency_head">Avoid the spread of Coronavirus</string>
+    <string name="emergency_title_1">How is COVID-19 spread?</string>
+    <string name="emergency_desc_1">A person can get COVID-19 from contact with someone who is infected with the virus. The disease can spread from person to person through droplets from the nose or mouth that are thrown out when an infected person coughs or exhales. These droplets fall on objects and surfaces around the person, so other people can get COVID-19 if they touch these objects or surfaces and then touch their eyes, nose, or mouth. They can also be spread by inhaling droplets that a person with COVID-19 has spread by coughing or exhaling. That is why it is important to stay more than 1 meter (3 feet) away from a person who is ill.The WHO is studying ongoing research into ways of spreading COVID-19 and will continue to report updated results.</string>
+    <string name="emergency_title_2">Can the virus that causes COVID-19 be transmitted through the air?</string>
+    <string name="emergency_desc_2">Studies to date suggest that the virus causing COVID-19 is transmitted primarily by contact with respiratory droplets, rather than by air.</string>
+    <string name="emergency_title_3">Is it possible to get COVID-19 from contact with a person who does not have any symptoms?</string>
+    <string name="emergency_desc_3">The main way of spreading the disease is through the respiratory droplets expelled by someone when coughing. The risk of getting COVID-19 from someone with no symptoms is very low. However, many people who get COVID-19 have only mild symptoms. This is particularly true in the early stages of the disease.</string>
+    <string name="emergency_title_4">What can I do to protect myself and prevent the spread of the disease?</string>
+    <string name="emergency_desc_4">Keep up to date with the latest information on the COVID-19 outbreak, which can be accessed on the WHO website and through relevant public health authorities at the national and local levels. Cases have been reported in many countries around the world, and outbreaks have occurred in several of them. Chinese and other authorities have managed to slow or stop the outbreak progress, but the situation is unpredictable and the latest news needs to be checked regularly.</string>
+    <string name="emergency_prevent_1">Wash your hands thoroughly and often using an alcohol-based disinfectant or soap and water.</string>
+    <string name="emergency_prevent_2">Keep a minimum distance of 1 meter (3 feet) between you and anyone who coughs or sneezes.</string>
+    <string name="emergency_prevent_3">Avoid touching your eyes, nose and mouth</string>
+    <string name="emergency_prevent_4">Both you and those around you should make sure you maintain good airway hygiene. That means covering your mouth and nose with your elbow bent or with a tissue when you cough or sneeze. The used handkerchief should be discarded immediately.</string>
+    <string name="emergency_prevent_5">Stay home if you are not feeling well. If you have a fever, cough, and shortness of breath, seek medical attention and call ahead. Follow the instructions of the local health authorities.</string>
+
+    <!-- Thanks -->
+    <string name="thanks_title">Thanks and their respective credits to all who made this application possible!</string>
+    <string name="thanks_data">Thanks for the data to:</string>
+    <string name="thanks_data_author"><u>CSSE</u></string>
+    <string name="thanks_info">Thanks for the information to:</string>
+    <string name="thanks_info_author"><u>OMS</u></string>
+    <string name="thanks_api">Thanks for the API to:</string>
+    <string name="thanks_api_author"><u>Nuttaphat Arunoprayoch</u></string>
+    <string name="thanks_icons">Thanks for the icons to:</string>
+    <string name="thanks_icons_author_1"><u>Flaticon</u></string>
+    <string name="thank_and">y</string>
+    <string name="thanks_icons_author_2"><u>Freepik</u></string>
+    <string name="thanks_design">Thanks for the design inspiration to:</string>
+    <string name="thanks_design_author"><u>Manish Singla Designs</u></string>
+</resources>

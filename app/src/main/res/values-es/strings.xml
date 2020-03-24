@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Coronavirus</string>
+
+    <string name="splash_title">Covid 19</string>
+    <string name="splash_message">Mantente informado,\nla mejor manera de prevenir.</string>
+    <string name="retry">Reintentar</string>
+
+    <string name="home_bottom_dialog_title">Coronavirus COVID-19 Casos Globales</string>
+    <string name="home_bottom_country_title">COVID-19 Casos en %1$s</string>
+
+    <string name="death_total">Bajas\ntotales</string>
+    <string name="confirmed_total">Confirmados\ntotales</string>
+    <string name="recovered_total">Recuperados\ntotales</string>
+    <string name="update_at">Actualizado al %1$s</string>
+
+    <string name="symptoms">Síntomas</string>
+    <string name="fever">Fiebre</string>
+    <string name="cough">Tos seca</string>
+    <string name="difficulty_breathing">Dificultad\npara respirar</string>
+    <string name="runny_nose">Secreciones\nnasales</string>
+    <string name="sore_throat">Dolor de\ngarganta</string>
+
+    <string name="scare_virus">Informate sobre los síntomas del Coronavirus</string>
+    <string name="consult_now">Consultar ahora</string>
+    <string name="consult_message">Tome sus precauciones y no ignore los síntomas. Consulte cuales son los síntomas hoy mismo.</string>
+
+    <string name="search_hint">Buscar…</string>
+    <string name="your_location">Tu ubicación</string>
+
+    <string name="emergency_guide">Guía de emergencia</string>
+    <string name="know_more">Saber mas</string>
+
+    <string name="scare_emergency">Evita el contagio del Coronavirus</string>
+    <string name="scare_emergency_message">Si sospecha que esta contagiado(a) o alguien cercano a usted, consulte cuales son las medidas correspondientes a tomar.</string>
+
+    <string name="email_message">Envia un email a appolog.apps@gmail.com</string>
+
+    <!-- Error message -->
+    <string name="network_error_message">Verifica tu conexión a internet e intenta de nuevo.</string>
+    <string name="default_error_message">Ocurrio un error, vuelva a intentarlo</string>
+
+    <!-- Menu -->
+    <string name="menu_global_cases">Casos globales</string>
+    <string name="menu_symptoms">Síntomas</string>
+    <string name="menu_emergency_guide">Guía de emergencia</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="menu_credits">Creditos</string>
+    <string name="menu_contact">Contacto</string>
+
+    <!-- Symptoms -->
+    <string name="symptoms_title_1">¿Qué es la COVID-19?</string>
+    <string name="symptoms_desc_1">La COVID-19 es la enfermedad infecciosa causada por el coronavirus que se ha descubierto más recientemente. Tanto el nuevo virus como la enfermedad eran desconocidos antes de que estallara el brote en Wuhan (China) en diciembre de 2019.</string>
+    <string name="symptoms_title_2">¿Cuáles son los síntomas de la COVID-19?</string>
+    <string name="symptoms_desc_2">Los síntomas más comunes de la COVID-19 son fiebre, cansancio y tos seca. Algunos pacientes pueden presentar dolores, congestión nasal, rinorrea, dolor de garganta o diarrea. Estos síntomas suelen ser leves y aparecen de forma gradual. Algunas personas se infectan pero no desarrollan ningún síntoma y no se encuentran mal. La mayoría de las personas (alrededor del 80%) se recupera de la enfermedad sin necesidad de realizar ningún tratamiento especial. Alrededor de 1 de cada 6 personas que contraen la COVID-19 desarrolla una enfermedad grave y tiene dificultad para respirar. Las personas mayores y las que padecen afecciones médicas subyacentes, como hipertensión arterial, problemas cardiacos o diabetes, tienen más probabilidades de desarrollar una enfermedad grave. En torno al 2% de las personas que han contraído la enfermedad han muerto. Las personas que tengan fiebre, tos y dificultad para respirar deben buscar atención médica.</string>
+    <string name="symptoms_title_3">¿Sospecha que usted o alguien cercano a usted puede estar contagiado(a)?</string>
+
+    <!-- Feedback -->
+    <string name="feedback_send">Enviar</string>
+    <string name="feedback_hint_email">Email</string>
+    <string name="feedback_hint_feedback">Escribe tu feedback aquií</string>
+    <string name="feedback_email_error">Ingresa un email valido</string>
+    <string name="feedback_feedback_error">Ingresa un feedback</string>
+    <string name="feedback_send_successful">Tu feedback a sido enviado. Gracias!</string>
+
+    <!-- Emergency -->
+    <string name="emergency_head">Evita el contagio del Coronavirus</string>
+    <string name="emergency_title_1">¿Cómo se propaga la COVID-19?</string>
+    <string name="emergency_desc_1">Una persona puede contraer la COVID-19 por contacto con otra que esté infectada por el virus. La enfermedad puede propagarse de persona a persona a través de las gotículas procedentes de la nariz o la boca que salen despedidas cuando una persona infectada tose o exhala. Estas gotículas caen sobre los objetos y superficies que rodean a la persona, de modo que otras personas pueden contraer la COVID-19 si tocan estos objetos o superficies y luego se tocan los ojos, la nariz o la boca. También pueden contagiarse si inhalan las gotículas que haya esparcido una persona con COVID-19 al toser o exhalar. Por eso es importante mantenerse a más de 1 metro (3 pies) de distancia de una persona que se encuentre enferma.La OMS está estudiando las investigaciones en curso sobre las formas de propagación de la COVID-19 y seguirá informando sobre los resultados actualizados.</string>
+    <string name="emergency_title_2">¿Puede transmitirse a través del aire el virus causante de la COVID-19?</string>
+    <string name="emergency_desc_2">Los estudios realizados hasta la fecha apuntan a que el virus causante de la COVID-19 se transmite principalmente por contacto con gotículas respiratorias, más que por el aire.</string>
+    <string name="emergency_title_3">¿Es posible contagiarse de COVID-19 por contacto con una persona que no presente ningún síntoma?</string>
+    <string name="emergency_desc_3">La principal forma de propagación de la enfermedad es a través de las gotículas respiratorias expelidas por alguien al toser. El riesgo de contraer la COVID-19 de alguien que no presente ningún síntoma es muy bajo. Sin embargo, muchas personas que contraen la COVID-19 solo presentan síntomas leves. Esto es particularmente cierto en las primeras etapas de la enfermedad.</string>
+    <string name="emergency_title_4">¿Qué puedo hacer para protegerme y prevenir la propagación de la enfermedad?</string>
+    <string name="emergency_desc_4">Manténgase al día de la información más reciente sobre el brote de COVID-19, a la que puede acceder en el sitio web de la OMS y a través de las autoridades de salud pública pertinentes a nivel nacional y local. Se han registrado casos en muchos países de todo el mundo, y en varios de ellos se han producido brotes. Las autoridades chinas y las de otros países han conseguido enlentecer o detener el avance de los brotes, pero la situación es impredecible y es necesario comprobar con regularidad las noticias más recientes.</string>
+    <string name="emergency_prevent_1">Lávese las manos a fondo y con frecuencia usando un desinfectante a base de alcohol o con agua y jabón.</string>
+    <string name="emergency_prevent_2">Mantenga una distancia mínima de 1 metro (3 pies) entre usted y cualquier persona que tosa o estornude.</string>
+    <string name="emergency_prevent_3">Evite tocarse los ojos, la nariz y la boca</string>
+    <string name="emergency_prevent_4">Tanto usted como las personas que les rodean deben asegurarse de mantener una buena higiene de las vías respiratorias. Eso significa cubrirse la boca y la nariz con el codo doblado o con un pañuelo de papel al toser o estornudar. El pañuelo usado debe desecharse de inmediato.</string>
+    <string name="emergency_prevent_5">Permanezca en casa si no se encuentra bien. Si tiene fiebre, tos y dificultad para respirar, busque atención médica y llame con antelación. Siga las instrucciones de las autoridades sanitarias locales.</string>
+
+    <!-- Thanks -->
+    <string name="thanks_title">Gracias y sus respectivos creditos a todos los que hicieron posible esta aplicación!</string>
+    <string name="thanks_data">Gracias por los datos a:</string>
+    <string name="thanks_data_author"><u>CSSE</u></string>
+    <string name="thanks_info">Gracias por la información a:</string>
+    <string name="thanks_info_author"><u>OMS</u></string>
+    <string name="thanks_api">Gracias por el API a:</string>
+    <string name="thanks_api_author"><u>Nuttaphat Arunoprayoch</u></string>
+    <string name="thanks_icons">Gracias por los iconos a:</string>
+    <string name="thanks_icons_author_1"><u>Flaticon</u></string>
+    <string name="thank_and">y</string>
+    <string name="thanks_icons_author_2"><u>Freepik</u></string>
+    <string name="thanks_design">Gracias por la inspiración de diseño a:</string>
+    <string name="thanks_design_author"><u>Manish Singla Designs</u></string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_global_cases"
+        android:icon="@drawable/ic_global"
+        android:title="@string/menu_global_cases" />
+    <item
+        android:id="@+id/nav_symptoms"
+        android:icon="@drawable/ic_virus"
+        android:title="@string/menu_symptoms" />
+    <item
+        android:id="@+id/nav_emergency_guide"
+        android:icon="@drawable/ic_emergency"
+        android:title="@string/menu_emergency_guide" />
+    <item
+        android:id="@+id/nav_feedback"
+        android:icon="@drawable/ic_heart"
+        android:title="@string/menu_feedback" />
+    <item
+        android:id="@+id/nav_credits"
+        android:icon="@drawable/ic_copyright"
+        android:title="@string/menu_credits" />
+    <item
+        android:id="@+id/nav_contact"
+        android:icon="@drawable/ic_contact"
+        android:title="@string/menu_contact" />
+</menu>
