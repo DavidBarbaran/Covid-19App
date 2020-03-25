@@ -9,7 +9,7 @@ Also find out about the symptoms of this virus to take the necessary precautions
 
 Download app here  👉 [https://appcoronavirus.com](https://appcoronavirus.com)
 
-### Why the application is not in the Play Store? 🚀  
+### Why the application is not in the Play Store?
 
 Being an informative app of covid19, which is a tragic event in the world, reporting confirmed, low and recovered, apparently we did not comply with the policies of sensitive events of Google Play, so they suspended and eliminated the application :(  
 
@@ -54,3 +54,9 @@ Open Android Studio and click the option **Open an existing project in Android S
 ### Reporting issues or improvements  🛠
 
 Found a bug or a problem on a specific feature? Open an issue on  [Github issues](https://github.com/DavidBarbaran/Covid19App/issues)
+
+### References & credits
+
+Thanks for data 👉 [CSSE](https://github.com/CSSEGISandData/COVID-19)
+
+Thanks for API 👉 [Nuttaphat Arunoprayoch](https://github.com/nat236919/Covid2019API)
