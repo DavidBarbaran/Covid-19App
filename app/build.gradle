@@ -31,7 +31,7 @@ android {
             shrinkResources true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL", "\"https://covid2019-api.herokuapp.com/\""
+            buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
             buildConfigField "String", "KEY_COUNTRY", "\"country\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }
@@ -39,7 +39,7 @@ android {
             minifyEnabled false
             shrinkResources false
             debuggable true
-            buildConfigField "String", "BASE_URL", "\"https://covid2019-api.herokuapp.com/\""
+            buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
             buildConfigField "String", "KEY_COUNTRY", "\"country\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }

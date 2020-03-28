@@ -5,10 +5,13 @@ import androidx.room.RoomDatabase
 import covid19.coronavirus.BuildConfig
 import covid19.coronavirus.data.database.dao.CountryDao
 import covid19.coronavirus.data.database.dao.TotalCasesDao
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.*
 
-@Database(entities = [Country::class, TotalCases::class], version = 1, exportSchema = true)
+@Database(
+    entities = [CountryResponse::class, CountryInfo::class, TotalResponse::class],
+    version = 1,
+    exportSchema = true
+)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
