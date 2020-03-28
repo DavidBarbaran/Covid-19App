@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.maps.model.Marker
 import covid19.coronavirus.feature.base.BaseViewModel
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.CountryResponse
+import covid19.coronavirus.model.TotalResponse
 import covid19.coronavirus.repository.CovidRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,11 +17,11 @@ class HomeViewModel(
     private val covidRepository: CovidRepository
 ) : BaseViewModel(application) {
 
-    var showTotalCasesLiveData = MutableLiveData<TotalCases>()
+    var showTotalCasesLiveData = MutableLiveData<TotalResponse>()
 
-    var getCountriesLiveData = MutableLiveData<MutableList<Country>>()
+    var getCountriesLiveData = MutableLiveData<MutableList<CountryResponse>>()
 
-    var data = HashMap<Marker, Country>()
+    var data = HashMap<Marker, CountryResponse>()
 
     fun getTotalCases() {
         viewModelScope.launch(Dispatchers.IO) {

@@ -1,17 +1,24 @@
 package covid19.coronavirus.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity
 class CountryResponse(
+    @PrimaryKey
     @SerializedName("country")
     @ColumnInfo(name = "country")
     val country: String,
 
     @SerializedName("countryInfo")
     @ColumnInfo(name = "countryInfo")
+    @TypeConverters(CountryInfoConverter::class)
     val countryInfo: CountryInfo,
 
     @SerializedName("cases")
@@ -44,9 +51,9 @@ class CountryResponse(
 
     @SerializedName("casesPerOneMillion")
     @ColumnInfo(name = "casesPerOneMillion")
-    val casesPerOneMillion: Int,
+    val casesPerOneMillion: Double,
 
     @SerializedName("deathsPerOneMillion")
     @ColumnInfo(name = "deathsPerOneMillion")
-    val deathsPerOneMillion: Int
-)
+    val deathsPerOneMillion: Double
+) : Parcelable

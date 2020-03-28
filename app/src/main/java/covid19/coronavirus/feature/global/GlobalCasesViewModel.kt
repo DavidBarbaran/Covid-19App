@@ -4,17 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.crashlytics.android.Crashlytics
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.CountryResponse
+import covid19.coronavirus.model.TotalResponse
 import covid19.coronavirus.repository.CovidRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class GlobalCasesViewModel(private val covidRepository: CovidRepository) : ViewModel() {
 
-    var showTotalCasesLiveData = MutableLiveData<TotalCases>()
+    var showTotalCasesLiveData = MutableLiveData<TotalResponse>()
 
-    var getCountriesLiveData = MutableLiveData<MutableList<Country>>()
+    var getCountriesLiveData = MutableLiveData<MutableList<CountryResponse>>()
 
     var getLastUpdateLiveData = MutableLiveData<String>()
 

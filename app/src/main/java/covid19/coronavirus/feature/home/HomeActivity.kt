@@ -26,8 +26,8 @@ import covid19.coronavirus.feature.global.GlobalCasesActivity
 import covid19.coronavirus.feature.search.SearchActivity
 import covid19.coronavirus.feature.symptoms.SymptomsActivity
 import covid19.coronavirus.firebase.analytics.AnalyticsUtil
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.CountryResponse
+import covid19.coronavirus.model.TotalResponse
 import covid19.coronavirus.util.changeBitmap
 import covid19.coronavirus.util.formatNumber
 import covid19.coronavirus.util.location.SmartLocation
@@ -48,7 +48,7 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
     private var bottomSheetBehavior: BottomSheetBehavior<View>? = null
 
     private var afterMarkerSelected: Marker? = null
-    private var countrySelected: Country? = null
+    private var countrySelected: CountryResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,9 +74,9 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RQ_SEARCH && resultCode == Activity.RESULT_OK) {
-            val country = data?.getParcelableExtra<Country>(SearchActivity.SEARCH_RESULT)
-            country?.run {
-                if (location == getString(R.string.your_location)) {
+            val countryResponse = data?.getParcelableExtra<CountryResponse>(SearchActivity.SEARCH_RESULT)
+            countryResponse?.run {
+                if (country == getString(R.string.your_location)) {
                     AnalyticsUtil.logEventAction(
                         this@HomeActivity,
                         AnalyticsUtil.Value.SEARCH,
@@ -88,14 +88,14 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
                     AnalyticsUtil.logEventAction(
                         this@HomeActivity,
                         AnalyticsUtil.Value.SEARCH,
-                        location
+                        country
                     )
-                    titleCasesText.text = getString(R.string.home_bottom_country_title, location)
-                    confirmedCountText.text = formatNumber(confirmed)
+                    titleCasesText.text = getString(R.string.home_bottom_country_title, country)
+                    confirmedCountText.text = formatNumber(cases)
                     deathCountText.text = formatNumber(deaths)
                     recoveredCountText.text = formatNumber(recovered)
 
-                    val latLngNow = LatLng(latitude, longitude)
+                    val latLngNow = LatLng(countryInfo.lat, countryInfo.long)
 
                     val location = CameraUpdateFactory.newLatLngZoom(
                         latLngNow, ZOOM_MAP
@@ -262,8 +262,8 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 viewModel.data[it]?.apply {
                     countrySelected = this
-                    titleCasesText.text = getString(R.string.home_bottom_country_title, location)
-                    confirmedCountText.text = formatNumber(confirmed)
+                    titleCasesText.text = getString(R.string.home_bottom_country_title, country)
+                    confirmedCountText.text = formatNumber(cases)
                     deathCountText.text = formatNumber(deaths)
                     recoveredCountText.text = formatNumber(recovered)
                 }
@@ -342,19 +342,24 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
 
     /** Observers **/
 
-    private fun observerTotalCases() = Observer<TotalCases> {
+    private fun observerTotalCases() = Observer<TotalResponse> {
         titleCasesText.text = getString(R.string.home_bottom_dialog_title)
-        confirmedCountText.text = formatNumber(it.confirmed)
+        confirmedCountText.text = formatNumber(it.cases)
         deathCountText.text = formatNumber(it.deaths)
         recoveredCountText.text = formatNumber(it.recovered)
     }
 
-    private fun observerGetCountries() = Observer<MutableList<Country>> {
+    private fun observerGetCountries() = Observer<MutableList<CountryResponse>> {
         val bitmap = changeBitmap(this, R.drawable.ic_marker, 80, 80)
         it.forEach { country ->
 
             val markerOptions = MarkerOptions()
-                .position(LatLng(country.latitude, country.longitude))
+                .position(
+                    LatLng(
+                        country.countryInfo.lat,
+                        country.countryInfo.long
+                    )
+                )
                 .icon(BitmapDescriptorFactory.fromBitmap(bitmap))
 
             val marker = mMap?.addMarker(markerOptions)

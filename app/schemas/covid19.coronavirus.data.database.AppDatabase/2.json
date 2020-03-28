@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "2103bb0a1bf05fea8c9553f83ede0105",
+    "version": 2,
+    "identityHash": "37fcfb34b0bcebccd7f0ca4c217e35a2",
     "entities": [
       {
         "tableName": "CountryResponse",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`country` TEXT NOT NULL, `countryInfo` TEXT NOT NULL, `cases` INTEGER NOT NULL, `todayCases` INTEGER NOT NULL, `deaths` INTEGER NOT NULL, `todayDeaths` INTEGER NOT NULL, `recovered` INTEGER NOT NULL, `active` INTEGER NOT NULL, `critical` INTEGER NOT NULL, `casesPerOneMillion` INTEGER NOT NULL, `deathsPerOneMillion` INTEGER NOT NULL, PRIMARY KEY(`country`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`country` TEXT NOT NULL, `countryInfo` TEXT NOT NULL, `cases` INTEGER NOT NULL, `todayCases` INTEGER NOT NULL, `deaths` INTEGER NOT NULL, `todayDeaths` INTEGER NOT NULL, `recovered` INTEGER NOT NULL, `active` INTEGER NOT NULL, `critical` INTEGER NOT NULL, `casesPerOneMillion` REAL NOT NULL, `deathsPerOneMillion` REAL NOT NULL, PRIMARY KEY(`country`))",
         "fields": [
           {
             "fieldPath": "country",
@@ -65,13 +65,13 @@
           {
             "fieldPath": "casesPerOneMillion",
             "columnName": "casesPerOneMillion",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": true
           },
           {
             "fieldPath": "deathsPerOneMillion",
             "columnName": "deathsPerOneMillion",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": true
           }
         ],
@@ -86,7 +86,7 @@
       },
       {
         "tableName": "CountryInfo",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `lat` INTEGER NOT NULL, `flag` TEXT NOT NULL, `iso3` TEXT NOT NULL, `iso2` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`_id` INTEGER NOT NULL, `lat` REAL NOT NULL, `flag` TEXT NOT NULL, `iso3` TEXT NOT NULL, `iso2` TEXT NOT NULL, PRIMARY KEY(`_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -97,7 +97,7 @@
           {
             "fieldPath": "lat",
             "columnName": "lat",
-            "affinity": "INTEGER",
+            "affinity": "REAL",
             "notNull": true
           },
           {
@@ -120,7 +120,9 @@
           }
         ],
         "primaryKey": {
-          "columnNames": [],
+          "columnNames": [
+            "_id"
+          ],
           "autoGenerate": false
         },
         "indices": [],
@@ -179,7 +181,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"2103bb0a1bf05fea8c9553f83ede0105\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"37fcfb34b0bcebccd7f0ca4c217e35a2\")"
     ]
   }
 }

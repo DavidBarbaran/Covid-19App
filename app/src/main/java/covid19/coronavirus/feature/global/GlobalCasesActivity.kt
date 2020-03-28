@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import covid19.coronavirus.R
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.CountryResponse
+import covid19.coronavirus.model.TotalResponse
 import covid19.coronavirus.util.formatNumber
 import kotlinx.android.synthetic.main.activity_global_cases.*
 import org.koin.android.ext.android.inject
@@ -15,7 +15,7 @@ class GlobalCasesActivity : AppCompatActivity() {
 
     private val viewModel: GlobalCasesViewModel by inject()
     private val globalCasesAdapter: GlobalCasesAdapter by inject()
-    private var country: Country? = null
+    private var country: CountryResponse? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +51,9 @@ class GlobalCasesActivity : AppCompatActivity() {
 
     /** Observer **/
 
-    private fun observerTotalCases() = Observer<TotalCases> {
+    private fun observerTotalCases() = Observer<TotalResponse> {
         totalCaseView.visibility = View.VISIBLE
-        confirmedCountText.text = formatNumber(it.confirmed)
+        confirmedCountText.text = formatNumber(it.cases)
         deathCountText.text = formatNumber(it.deaths)
         recoveredCountText.text = formatNumber(it.recovered)
     }
@@ -63,10 +63,10 @@ class GlobalCasesActivity : AppCompatActivity() {
         updateText.text = getString(R.string.update_at, it)
     }
 
-    private fun observerGetCountries() = Observer<MutableList<Country>> {
+    private fun observerGetCountries() = Observer<MutableList<CountryResponse>> {
         globalCasesAdapter.setData(it)
         if (country != null) {
-            val position = globalCasesAdapter.getPositionFromCountry(country!!.location)
+            val position = globalCasesAdapter.getPositionFromCountry(country!!.country)
             position?.run {
                 globalCasesAdapter.listSelected?.set(this, true)
                 globalCasesRecycler.scrollToPosition(this)

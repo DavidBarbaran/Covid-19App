@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import covid19.coronavirus.R
-import covid19.coronavirus.model.Country
+import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.util.setTransparentStatusBar
 import kotlinx.android.synthetic.main.activity_search.*
 import org.koin.android.ext.android.inject
@@ -61,7 +61,7 @@ class SearchActivity : AppCompatActivity() {
 
     /** Observers **/
 
-    private fun observerSearchCountries() = Observer<MutableList<Country>> {
+    private fun observerSearchCountries() = Observer<MutableList<CountryResponse>> {
         searchAdapter.list = it
         searchAdapter.notifyDataSetChanged()
     }

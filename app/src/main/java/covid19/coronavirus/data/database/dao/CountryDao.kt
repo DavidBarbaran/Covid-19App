@@ -9,13 +9,13 @@ import covid19.coronavirus.model.CountryResponse
 @Dao
 interface CountryDao {
 
-    @Query("SELECT * FROM Country")
+    @Query("SELECT * FROM CountryResponse")
     fun getCountry(): MutableList<CountryResponse>
 
-    @Query("SELECT * FROM Country ORDER BY confirmed DESC")
+    @Query("SELECT * FROM CountryResponse ORDER BY cases DESC")
     fun getCountryByConfirmedCases(): MutableList<CountryResponse>
 
-    @Query("SELECT * FROM Country WHERE location LIKE '%' || :q || '%'")
+    @Query("SELECT * FROM CountryResponse WHERE country LIKE '%' || :q || '%'")
     fun getCountry(q : String): MutableList<CountryResponse>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
