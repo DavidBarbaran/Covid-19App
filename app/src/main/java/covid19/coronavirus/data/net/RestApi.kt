@@ -1,7 +1,7 @@
 package covid19.coronavirus.data.net
 
 import covid19.coronavirus.BuildConfig
-import covid19.coronavirus.model.CurrentResponse
+import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.model.TotalResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit
 
 interface RestApi {
 
-    @GET("v2/current")
-    suspend fun getCurrent(): CurrentResponse
+    @GET("countries")
+    suspend fun getCurrent(): MutableList<CountryResponse>
 
-    @GET("v2/total")
+    @GET("all")
     suspend fun getTotal(): TotalResponse
 
     companion object {

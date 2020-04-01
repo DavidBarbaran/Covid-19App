@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import covid19.coronavirus.R
-import covid19.coronavirus.model.Country
+import covid19.coronavirus.model.CountryResponse
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
-    var list: MutableList<Country>? = null
+    var list: MutableList<CountryResponse>? = null
     var onClickSearch: OnClickSearch? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = SearchViewHolder(
@@ -23,26 +23,26 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
         list?.get(position)?.run { holder.bind(this) }
     }
 
-    inline fun setOnClickSearch(crossinline onClickSearch: (country: Country) -> Unit) {
+    inline fun setOnClickSearch(crossinline onClickSearch: (countryResponse: CountryResponse) -> Unit) {
         this.onClickSearch = object : OnClickSearch {
-            override fun onClickSearch(country: Country) {
-                onClickSearch(country)
+            override fun onClickSearch(countryResponse: CountryResponse) {
+                onClickSearch(countryResponse)
             }
         }
     }
 
     inner class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(country: Country) {
+        fun bind(countryResponse: CountryResponse) {
             itemView.apply {
-                nameText.text = country.location
+                nameText.text = countryResponse.country
                 setOnClickListener {
-                    onClickSearch?.onClickSearch(country)
+                    onClickSearch?.onClickSearch(countryResponse)
                 }
             }
         }
     }
 
     interface OnClickSearch {
-        fun onClickSearch(country: Country)
+        fun onClickSearch(countryResponse: CountryResponse)
     }
 }

@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Coronavirus</string>
 
+    <!-- Splash -->
+
     <string name="splash_title">Covid 19</string>
     <string name="splash_message">Mantente informado,\nla mejor manera de prevenir.</string>
     <string name="retry">Reintentar</string>
+
+    <!-- Permission -->
+    <string name="permission_location">Debe otorgar permisos para poder determinar su ubicación</string>
+    <string name="permission_storage">Debe otorgar permisos para descargar la nueva versión del app</string>
+
+    <!-- Home -->
 
     <string name="home_bottom_dialog_title">Coronavirus COVID-19 Casos Globales</string>
     <string name="home_bottom_country_title">COVID-19 Casos en %1$s</string>
@@ -33,7 +41,26 @@
     <string name="scare_emergency">Evita el contagio del Coronavirus</string>
     <string name="scare_emergency_message">Si sospecha que esta contagiado(a) o alguien cercano a usted, consulte cuales son las medidas correspondientes a tomar.</string>
 
-    <string name="email_message">Envia un email a appolog.apps@gmail.com</string>
+    <string name="email_message">Envia un email a contact.covid19app@gmail.com</string>
+
+    <!-- Share -->
+    <string name="share_app">Compartir app</string>
+    <string name="share_text">Vea los últimos casos a nivel global del Coronavirus (Covid 19) en America, Europa, África y Oceanía. 🌎\n\nDescarga la app aquí 👉 https://appcoronavirus.com\n\nAdemás infórmate sobre los síntomas de este virus para tomar las precauciones necesarios y ten a la mano una guía de emergencia en caso de que sospeches estar contagiado o alguien cercano a ti lo este.</string>
+
+    <!-- Download -->
+    <string name="dialog_default_cancel">Cancelar</string>
+    <string name="dialog_default_accept">Aceptar</string>
+
+    <string name="update_app_title">Actualizar app</string>
+    <string name="update_app_message">Hemos realizado mejoras en la aplicación, descargue la nueva versión para acceder a estas mejoras!</string>
+    <string name="update_app_download">Descargar</string>
+
+    <string name="open_app_title">Instalar app</string>
+    <string name="open_app_message">La aplicación ha sido descargada</string>
+    <string name="open_app_open_and_install">Abrir e instalar</string>
+    <string name="open_app_notify_message">La aplicación ha sido descargada, instale haciendo clic aquí</string>
+
+    <string name="notify_download_app">Se está descargando la nueva versión de Covid 19 App.</string>
 
     <!-- Error message -->
     <string name="network_error_message">Verifica tu conexión a internet e intenta de nuevo.</string>
@@ -43,6 +70,7 @@
     <string name="menu_global_cases">Casos globales</string>
     <string name="menu_symptoms">Síntomas</string>
     <string name="menu_emergency_guide">Guía de emergencia</string>
+    <string name="menu_share">Compartir app</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_credits">Creditos</string>
     <string name="menu_contact">Contacto</string>

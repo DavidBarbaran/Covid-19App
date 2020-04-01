@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import covid19.coronavirus.R
-import covid19.coronavirus.model.Country
+import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.util.formatNumber
 import kotlinx.android.synthetic.main.item_global_case.view.*
 import java.util.*
 
 class GlobalCasesAdapter : RecyclerView.Adapter<GlobalCasesAdapter.GlobalCasesViewHolder>() {
 
-    var list: MutableList<Country>? = null
+    var list: MutableList<CountryResponse>? = null
     var listSelected: Array<Boolean?>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = GlobalCasesViewHolder(
@@ -31,7 +31,7 @@ class GlobalCasesAdapter : RecyclerView.Adapter<GlobalCasesAdapter.GlobalCasesVi
         }
     }
 
-    fun setData(list: MutableList<Country>) {
+    fun setData(list: MutableList<CountryResponse>) {
         listSelected = arrayOfNulls(list.size)
         Arrays.fill(listSelected, false)
         this.list = list
@@ -40,7 +40,7 @@ class GlobalCasesAdapter : RecyclerView.Adapter<GlobalCasesAdapter.GlobalCasesVi
     fun getPositionFromCountry(country: String): Int? {
         list?.run {
             for ((index, value) in this.withIndex()) {
-                if (value.location == country) {
+                if (value.country == country) {
                     return index
                 }
             }
@@ -50,11 +50,11 @@ class GlobalCasesAdapter : RecyclerView.Adapter<GlobalCasesAdapter.GlobalCasesVi
 
     inner class GlobalCasesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(country: Country, isSelected: Boolean) {
+        fun bind(country: CountryResponse, isSelected: Boolean) {
             itemView.apply {
                 numberText.text = "#${adapterPosition + 1}"
-                countryName.text = country.location
-                confirmCountText.text = formatNumber(country.confirmed)
+                countryName.text = country.country
+                confirmCountText.text = formatNumber(country.cases)
                 deathCountText.text = formatNumber(country.deaths)
                 recoveredCountText.text = formatNumber(country.recovered)
                 contentItemView.setBackgroundColor(

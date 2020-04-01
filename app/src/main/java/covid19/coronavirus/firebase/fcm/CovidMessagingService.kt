@@ -56,5 +56,8 @@ class CovidMessagingService : FirebaseMessagingService() {
     companion object {
         private const val CHANNEL_ID = "Messages"
         private const val CHANNEL_NAME = "Messages"
+
+        const val CHANNEL_ID_UPDATE = "Update App"
+        const val CHANNEL_NAME_UPDATE = "Update App"
     }
 }
