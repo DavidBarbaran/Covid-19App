@@ -33,6 +33,12 @@ object AnalyticsUtil {
         const val HOME_EMERGENCY_BUTTON = "home_emergency_button"
 
         const val SYMPTOMS_EMERGENCY = "symptoms_emergency"
+
+        const val ACCEPT_DOWNLOAD = "accept_download"
+        const val CANCEL_DOWNLOAD = "cancel_download"
+
+        const val OPEN_APP_DOWNLOAD = "open_app_download"
+        const val NOT_OPEN_APP_DOWNLOAD = "not_open_app_download"
     }
 
     fun logEvent(context: Context, event: String, itemId: String = event) {

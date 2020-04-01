@@ -435,9 +435,12 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
             .setTitle(getString(R.string.update_app_title))
             .setMessage(getString(R.string.update_app_message))
             .setPositiveButtonText(getString(R.string.update_app_download))
-            .setOnClickDownload {
+            .setOnClickAccept {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.ACCEPT_DOWNLOAD)
                 downloadFileWithPermission()
                 it.cancel()
+            }.setOnClickCancel {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.CANCEL_DOWNLOAD)
             }.show()
     }
 
@@ -446,9 +449,12 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
             .setTitle(getString(R.string.open_app_title))
             .setMessage(getString(R.string.open_app_message))
             .setPositiveButtonText(getString(R.string.open_app_open_and_install))
-            .setOnClickDownload {
+            .setOnClickAccept {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.OPEN_APP_DOWNLOAD)
                 goToInstallNewVersion(destination)
                 it.cancel()
+            }.setOnClickCancel {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.NOT_OPEN_APP_DOWNLOAD)
             }.show()
     }
 

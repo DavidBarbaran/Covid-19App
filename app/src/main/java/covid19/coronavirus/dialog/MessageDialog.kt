@@ -87,7 +87,7 @@ class MessageDialog(context: Context) : Dialog(context) {
         }
 
 
-        inline fun setOnClickDownload(crossinline onClickDownload: (dialog: MessageDialog) -> Unit) =
+        inline fun setOnClickAccept(crossinline onClickDownload: (dialog: MessageDialog) -> Unit) =
             apply {
                 this.onClickAccept = object : OnClickAccept {
                     override fun onClickAccept(dialog: MessageDialog) {
