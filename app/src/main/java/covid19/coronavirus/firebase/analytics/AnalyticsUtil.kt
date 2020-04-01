@@ -17,6 +17,7 @@ object AnalyticsUtil {
         const val MENU_GLOBAL_CASES = "menu_global_cases"
         const val MENU_SYMPTOMS = "menu_symptoms"
         const val MENU_EMERGENCY = "menu_emergency"
+        const val MENU_SHARE = "menu_share"
         const val MENU_FEEDBACK = "menu_feedback"
         const val MENU_CREDITS = "menu_credits"
         const val MENU_CONTACT = "menu_contact"

@@ -18,7 +18,7 @@ val splashModule = module {
 }
 
 val homeModule = module {
-    viewModel { HomeViewModel(androidApplication(), get()) }
+    viewModel { HomeViewModel(androidApplication(), get(), get()) }
 }
 
 val searchModule = module {

@@ -2,15 +2,16 @@ package covid19.coronavirus.feature.home
 
 import android.Manifest
 import android.app.Activity
-import android.content.ActivityNotFoundException
-import android.content.Intent
+import android.content.*
 import android.content.res.Resources.NotFoundException
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,7 +19,9 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import covid19.coronavirus.BuildConfig
 import covid19.coronavirus.R
+import covid19.coronavirus.dialog.MessageDialog
 import covid19.coronavirus.feature.credits.CreditsActivity
 import covid19.coronavirus.feature.emergency.EmergencyActivity
 import covid19.coronavirus.feature.feedback.FeedbackActivity
@@ -29,6 +32,7 @@ import covid19.coronavirus.firebase.analytics.AnalyticsUtil
 import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.model.TotalResponse
 import covid19.coronavirus.util.changeBitmap
+import covid19.coronavirus.service.DownloadService
 import covid19.coronavirus.util.formatNumber
 import covid19.coronavirus.util.location.SmartLocation
 import covid19.coronavirus.util.setTransparentStatusBar
@@ -37,6 +41,7 @@ import kotlinx.android.synthetic.main.content_home.*
 import org.koin.android.ext.android.inject
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
+import java.io.File
 
 class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -74,7 +79,8 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RQ_SEARCH && resultCode == Activity.RESULT_OK) {
-            val countryResponse = data?.getParcelableExtra<CountryResponse>(SearchActivity.SEARCH_RESULT)
+            val countryResponse =
+                data?.getParcelableExtra<CountryResponse>(SearchActivity.SEARCH_RESULT)
             countryResponse?.run {
                 if (country == getString(R.string.your_location)) {
                     AnalyticsUtil.logEventAction(
@@ -139,6 +145,10 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
                     AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.MENU_EMERGENCY)
                     goToEmergencyGuide()
                 }
+                R.id.nav_share -> {
+                    AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.MENU_SHARE)
+                    goToShareApp()
+                }
                 R.id.nav_feedback -> {
                     AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.MENU_FEEDBACK)
                     goToFeedback()
@@ -160,6 +170,10 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun setViewModel() {
         viewModel.showTotalCasesLiveData.observe(this, observerTotalCases())
         viewModel.getCountriesLiveData.observe(this, observerGetCountries())
+        viewModel.showUpdateDialogLiveData.observe(this, observerShowUpdateDialog())
+        viewModel.showOpenApkDialogLiveData.observe(this, observerShowOpenApkDialog())
+        viewModel.downloadFailedLiveData.observe(this, observerDownloadFailed())
+        viewModel.checkVersionApp()
         viewModel.getTotalCases()
     }
 
@@ -197,19 +211,6 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         knowMoreButton.setOnClickListener {
             AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.HOME_EMERGENCY_BUTTON)
             goToEmergencyGuide()
-        }
-    }
-
-    @AfterPermissionGranted(RQ_ACCESS_FINE_LOCATION)
-    private fun requestLocationWithPermission() {
-        val perms = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
-        if (EasyPermissions.hasPermissions(this, *perms)) {
-            startLocationUpdates()
-        } else {
-            EasyPermissions.requestPermissions(
-                this, "Debe otorgar permisos para acceder a su ubicación",
-                RQ_ACCESS_FINE_LOCATION, *perms
-            )
         }
     }
 
@@ -295,6 +296,34 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    /** Permission methods **/
+
+    @AfterPermissionGranted(RQ_ACCESS_FINE_LOCATION)
+    private fun requestLocationWithPermission() {
+        val perms = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
+        if (EasyPermissions.hasPermissions(this, *perms)) {
+            startLocationUpdates()
+        } else {
+            EasyPermissions.requestPermissions(
+                this, getString(R.string.permission_location),
+                RQ_ACCESS_FINE_LOCATION, *perms
+            )
+        }
+    }
+
+    @AfterPermissionGranted(RQ_STORAGE)
+    private fun downloadFileWithPermission() {
+        val perms = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if (EasyPermissions.hasPermissions(this, *perms)) {
+            viewModel.downloadAppNewVersion()
+        } else {
+            EasyPermissions.requestPermissions(
+                this, getString(R.string.permission_storage),
+                RQ_STORAGE, *perms
+            )
+        }
+    }
+
     /** Go to **/
 
     private fun goToSearch() {
@@ -314,6 +343,14 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun goToEmergencyGuide() {
         startActivity(Intent(this, EmergencyActivity::class.java))
+    }
+
+    private fun goToShareApp() {
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text))
+        shareIntent.type = "text/plain"
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_app)))
     }
 
     private fun goToFeedback() {
@@ -337,6 +374,32 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."))
         } catch (ex: ActivityNotFoundException) {
             // Empty
+        }
+    }
+
+    private fun goToInstallNewVersion(destination: String) {
+        val uriFile = Uri.parse("${DownloadService.FILE_BASE_PATH}$destination")
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val contentUri = FileProvider.getUriForFile(
+                this,
+                BuildConfig.APPLICATION_ID + DownloadService.PROVIDER_PATH,
+                File(destination)
+            )
+            val install = Intent(Intent.ACTION_VIEW)
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            install.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            install.putExtra(Intent.EXTRA_NOT_UNKNOWN_SOURCE, true)
+            install.data = contentUri
+            startActivity(install)
+        } else {
+            val install = Intent(Intent.ACTION_VIEW)
+            install.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            install.setDataAndType(
+                uriFile,
+                DownloadService.MIME_TYPE
+            )
+            startActivity(install)
         }
     }
 
@@ -367,10 +430,38 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    private fun observerShowUpdateDialog() = Observer<Boolean> {
+        MessageDialog.Builder(this)
+            .setTitle(getString(R.string.update_app_title))
+            .setMessage(getString(R.string.update_app_message))
+            .setPositiveButtonText(getString(R.string.update_app_download))
+            .setOnClickDownload {
+                downloadFileWithPermission()
+                it.cancel()
+            }.show()
+    }
+
+    private fun observerShowOpenApkDialog() = Observer<String> { destination ->
+        MessageDialog.Builder(this)
+            .setTitle(getString(R.string.open_app_title))
+            .setMessage(getString(R.string.open_app_message))
+            .setPositiveButtonText(getString(R.string.open_app_open_and_install))
+            .setOnClickDownload {
+                goToInstallNewVersion(destination)
+                it.cancel()
+            }.show()
+    }
+
+    private fun observerDownloadFailed() = Observer<String> {
+        Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+    }
+
     companion object {
         private const val ZOOM_MAP = 4.8f
 
         private const val RQ_ACCESS_FINE_LOCATION = 1
-        private const val RQ_SEARCH = 2
+        private const val RQ_STORAGE = 2
+
+        private const val RQ_SEARCH = 101
     }
 }

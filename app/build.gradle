@@ -32,7 +32,8 @@ android {
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
-            buildConfigField "String", "KEY_COUNTRY", "\"country\""
+            buildConfigField "String", "KEY_VERSION_CODE", "\"version_code\""
+            buildConfigField "String", "KEY_FILE_DOWNLOAD", "\"file_download\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }
         debug {
@@ -40,7 +41,8 @@ android {
             shrinkResources false
             debuggable true
             buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
-            buildConfigField "String", "KEY_COUNTRY", "\"country\""
+            buildConfigField "String", "KEY_VERSION_CODE", "\"version_code\""
+            buildConfigField "String", "KEY_FILE_DOWNLOAD", "\"file_download\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }
     }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <defaultsMap>
     <entry>
-        <key>country</key>
-        <value></value>
+        <key>version_code</key>
+        <value>2</value>
+        <key>file_download</key>
+        <value>https://appcoronavirus.com/</value>
     </entry>
 </defaultsMap>
