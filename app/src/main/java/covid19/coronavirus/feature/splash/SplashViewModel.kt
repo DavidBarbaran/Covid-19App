@@ -6,11 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.crashlytics.android.Crashlytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.google.gson.Gson
 import covid19.coronavirus.BuildConfig
 import covid19.coronavirus.R
 import covid19.coronavirus.feature.base.BaseViewModel
-import covid19.coronavirus.model.CountryLocation
 import covid19.coronavirus.repository.CovidRepository
 import covid19.coronavirus.util.getErrorMessage
 import kotlinx.coroutines.Dispatchers
@@ -57,13 +55,8 @@ class SplashViewModel(
     private fun getCovidData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val countriesRemoteConfig = firebaseRemoteConfig.getString(BuildConfig.KEY_COUNTRY)
-                val listCountryLocation = Gson().fromJson(
-                    countriesRemoteConfig,
-                    Array<CountryLocation>::class.java
-                ).toMutableList()
 
-                covidRepository.saveCovidData(listCountryLocation)
+                covidRepository.saveCovidData()
 
                 launch(Dispatchers.Main) {
                     getDataSuccessfulLiveData.postValue(true)

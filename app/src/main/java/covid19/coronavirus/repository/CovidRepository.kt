@@ -1,20 +1,19 @@
 package covid19.coronavirus.repository
 
-import covid19.coronavirus.model.Country
-import covid19.coronavirus.model.CountryLocation
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.CountryResponse
+import covid19.coronavirus.model.TotalResponse
 
 interface CovidRepository {
 
-    suspend fun saveCovidData(countriesLocation: MutableList<CountryLocation>)
+    suspend fun saveCovidData()
 
-    suspend fun getCountries(): MutableList<Country>
+    suspend fun getCountries(): MutableList<CountryResponse>
 
-    suspend fun getCountriesByConfirmedCases(): MutableList<Country>
+    suspend fun getCountriesByConfirmedCases(): MutableList<CountryResponse>
 
-    suspend fun getCountriesFromName(name: String): MutableList<Country>
+    suspend fun getCountriesFromName(name: String): MutableList<CountryResponse>
 
-    suspend fun getTotalCases(): TotalCases
+    suspend fun getTotalCases(): TotalResponse
 
     suspend fun getLastUpdate(): String
 }

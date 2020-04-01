@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Covid 19</string>
 
+    <!-- Splash -->
+
     <string name="splash_title">Covid 19</string>
     <string name="splash_message">Stay informed,\nthe best way to prevent.</string>
     <string name="retry">Retry</string>
+
+    <!-- Permission -->
+    <string name="permission_location">You must grant permissions to determine your location</string>
+    <string name="permission_storage">You must grant permissions to download the new version of the app</string>
+
+    <!-- Home -->
 
     <string name="home_bottom_dialog_title">Coronavirus COVID-19 Global Cases</string>
     <string name="home_bottom_country_title">COVID-19 Cases in %1$s</string>
@@ -33,7 +41,26 @@
     <string name="scare_emergency">Avoid the spread of Covid 19</string>
     <string name="scare_emergency_message">If you suspect that you are infected or someone close to you, see what are the appropriate measures to take.</string>
 
-    <string name="email_message">Send email to appolog.apps@gmail.com</string>
+    <string name="email_message">Send email to contact.covid19app@gmail.com</string>
+
+    <!-- Share -->
+    <string name="share_app">Share app</string>
+    <string name="share_text">See the latest global cases of Covid-19 in America, Europe, Africa and Oceania. 🌎\n\nDownload the application here 👉 https://appcoronavirus.com\n\nAlso learn about the symptoms of this virus to take the necessary precautions and have an emergency guide handy in case you suspect you are infected or someone close to you is.</string>
+
+    <!-- Download -->
+    <string name="dialog_default_cancel">Cancel</string>
+    <string name="dialog_default_accept">Accept</string>
+
+    <string name="update_app_title">Update app</string>
+    <string name="update_app_message">We have made improvements in the application, download the new version to access these improvements</string>
+    <string name="update_app_download">Download</string>
+
+    <string name="open_app_title">Install app</string>
+    <string name="open_app_message">The application has been downloaded</string>
+    <string name="open_app_open_and_install">Open and install</string>
+    <string name="open_app_notify_message">The application has been downloaded, install by clicking here</string>
+
+    <string name="notify_download_app">The new version of Covid 19 is being downloaded</string>
 
     <!-- Error message -->
     <string name="network_error_message">Please check your internet connection and try again.</string>
@@ -43,6 +70,7 @@
     <string name="menu_global_cases">Global cases</string>
     <string name="menu_symptoms">Symptoms</string>
     <string name="menu_emergency_guide">Emergency guide</string>
+    <string name="menu_share">Share app</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_credits">Credits</string>
     <string name="menu_contact">Contact</string>

@@ -17,6 +17,7 @@ object AnalyticsUtil {
         const val MENU_GLOBAL_CASES = "menu_global_cases"
         const val MENU_SYMPTOMS = "menu_symptoms"
         const val MENU_EMERGENCY = "menu_emergency"
+        const val MENU_SHARE = "menu_share"
         const val MENU_FEEDBACK = "menu_feedback"
         const val MENU_CREDITS = "menu_credits"
         const val MENU_CONTACT = "menu_contact"
@@ -32,6 +33,12 @@ object AnalyticsUtil {
         const val HOME_EMERGENCY_BUTTON = "home_emergency_button"
 
         const val SYMPTOMS_EMERGENCY = "symptoms_emergency"
+
+        const val ACCEPT_DOWNLOAD = "accept_download"
+        const val CANCEL_DOWNLOAD = "cancel_download"
+
+        const val OPEN_APP_DOWNLOAD = "open_app_download"
+        const val NOT_OPEN_APP_DOWNLOAD = "not_open_app_download"
     }
 
     fun logEvent(context: Context, event: String, itemId: String = event) {

@@ -6,7 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.crashlytics.android.Crashlytics
 import covid19.coronavirus.R
 import covid19.coronavirus.feature.base.BaseViewModel
-import covid19.coronavirus.model.Country
+import covid19.coronavirus.model.CountryInfo
+import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.repository.CovidRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +15,7 @@ import kotlinx.coroutines.launch
 class SearchViewModel(application: Application, private val covidRepository: CovidRepository) :
     BaseViewModel(application) {
 
-    var searchCountriesLiveData = MutableLiveData<MutableList<Country>>()
+    var searchCountriesLiveData = MutableLiveData<MutableList<CountryResponse>>()
 
     fun search(q: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -34,8 +35,21 @@ class SearchViewModel(application: Application, private val covidRepository: Cov
             try {
                 val countries = covidRepository.getCountries()
                 countries.reverse()
+                val countryInfoNow = CountryInfo()
                 val locationNow =
-                    Country(context.getString(R.string.your_location), 0, 0, 0, 0.0, 0.0)
+                    CountryResponse(
+                        context.getString(R.string.your_location),
+                        countryInfoNow,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0.0,
+                        0.0
+                    )
                 countries.add(locationNow)
                 countries.reverse()
                 launch(Dispatchers.Main) {
