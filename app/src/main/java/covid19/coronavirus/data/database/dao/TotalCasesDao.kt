@@ -4,14 +4,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import covid19.coronavirus.model.TotalCases
+import covid19.coronavirus.model.TotalResponse
 
 @Dao
 interface TotalCasesDao {
 
-    @Query("SELECT * FROM TotalCases LIMIT 1")
-    fun getTotalCases(): TotalCases
+    @Query("SELECT * FROM TotalResponse LIMIT 1")
+    fun getTotalCases(): TotalResponse
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(totalCases: TotalCases)
+    fun insert(totalResponse: TotalResponse)
+
+    @Query("DELETE FROM TotalResponse")
+    fun deleteAll()
 }

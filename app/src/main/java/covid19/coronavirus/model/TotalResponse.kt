@@ -1,14 +1,33 @@
 package covid19.coronavirus.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-class TotalResponse (
-    @SerializedName("data")
-    val data: TotalCases,
+@Entity
+class TotalResponse(
 
-    @SerializedName("dt")
-    val dt: String,
+    @PrimaryKey
+    var id: String,
 
-    @SerializedName("ts")
-    val ts: Double
+    @SerializedName("cases")
+    @ColumnInfo(name = "cases")
+    val cases: Int,
+
+    @SerializedName("deaths")
+    @ColumnInfo(name = "deaths")
+    val deaths: Int,
+
+    @SerializedName("recovered")
+    @ColumnInfo(name = "recovered")
+    val recovered: Int,
+
+    @SerializedName("updated")
+    @ColumnInfo(name = "updated")
+    val updated: Long,
+
+    @SerializedName("active")
+    @ColumnInfo(name = "active")
+    val active: Int
 )
