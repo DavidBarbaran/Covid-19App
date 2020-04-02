@@ -16,4 +16,10 @@ interface CovidRepository {
     suspend fun getTotalCases(): TotalResponse
 
     suspend fun getLastUpdate(): String
+
+    suspend fun updateCountEnterData()
+
+    suspend fun getCountEnter() : Int
+
+    suspend fun resetCountData()
 }

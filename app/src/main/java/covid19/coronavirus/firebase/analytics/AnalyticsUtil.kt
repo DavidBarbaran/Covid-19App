@@ -39,6 +39,10 @@ object AnalyticsUtil {
 
         const val OPEN_APP_DOWNLOAD = "open_app_download"
         const val NOT_OPEN_APP_DOWNLOAD = "not_open_app_download"
+
+        const val SHOW_SHARE = "show_share"
+        const val ACCEPT_SHARE = "accept_share"
+        const val NOT_ACCEPT_SHARE = "not_accept_share"
     }
 
     fun logEvent(context: Context, event: String, itemId: String = event) {

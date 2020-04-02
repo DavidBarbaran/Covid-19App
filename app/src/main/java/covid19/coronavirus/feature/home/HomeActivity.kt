@@ -173,7 +173,9 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         viewModel.showUpdateDialogLiveData.observe(this, observerShowUpdateDialog())
         viewModel.showOpenApkDialogLiveData.observe(this, observerShowOpenApkDialog())
         viewModel.downloadFailedLiveData.observe(this, observerDownloadFailed())
+        viewModel.showShareDialog.observe(this, observerShowShareDialog())
         viewModel.checkVersionApp()
+        viewModel.checkShowDialogShare()
         viewModel.getTotalCases()
     }
 
@@ -455,6 +457,21 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
                 it.cancel()
             }.setOnClickCancel {
                 AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.NOT_OPEN_APP_DOWNLOAD)
+            }.show()
+    }
+
+    private fun observerShowShareDialog() = Observer<Boolean> {
+        AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.SHOW_SHARE)
+        MessageDialog.Builder(this)
+            .setTitle(getString(R.string.share_app))
+            .setMessage(getString(R.string.share_app_message))
+            .setPositiveButtonText(getString(R.string.share_app_now))
+            .setOnClickAccept {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.ACCEPT_SHARE)
+                goToShareApp()
+                it.cancel()
+            }.setOnClickCancel {
+                AnalyticsUtil.logEvent(this, AnalyticsUtil.Value.NOT_ACCEPT_SHARE)
             }.show()
     }
 

@@ -37,16 +37,43 @@ class HomeViewModel(
 
     var downloadFailedLiveData = MutableLiveData<String>()
 
+    var showShareDialog = MutableLiveData<Boolean>()
+
     val data = HashMap<Marker, CountryResponse>()
 
     fun checkVersionApp() {
         viewModelScope.launch(Dispatchers.IO) {
-            val appVersion = BuildConfig.VERSION_CODE
-            val newVersion = firebaseRemoteConfig.getLong(BuildConfig.KEY_VERSION_CODE)
-            if (newVersion > appVersion) {
-                launch(Dispatchers.Main) {
-                    showUpdateDialogLiveData.postValue(true)
+            try {
+                val appVersion = BuildConfig.VERSION_CODE
+                val newVersion = firebaseRemoteConfig.getLong(BuildConfig.KEY_VERSION_CODE)
+                if (newVersion > appVersion) {
+                    launch(Dispatchers.Main) {
+                        showUpdateDialogLiveData.postValue(true)
+                    }
                 }
+            } catch (ex : Exception){
+                Crashlytics.logException(ex)
+            }
+        }
+    }
+
+    fun checkShowDialogShare() {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val countShowShareDialog = firebaseRemoteConfig.getLong(BuildConfig.COUNT_SHOW_SHARE).toInt()
+                val countNow = covidRepository.getCountEnter()
+
+                if (countNow.plus(1) == countShowShareDialog){
+                    covidRepository.resetCountData()
+                    launch(Dispatchers.Main) {
+                        showShareDialog.postValue(true)
+                    }
+                } else {
+                    covidRepository.updateCountEnterData()
+                }
+
+            } catch (ex : Exception){
+                Crashlytics.logException(ex)
             }
         }
     }

@@ -56,4 +56,17 @@ class CovidRepositoryImpl(
     override suspend fun getLastUpdate(): String {
         return sessionManager.lastDateUpdate
     }
+
+    override suspend fun updateCountEnterData() {
+        val countNow = sessionManager.enterAppCount
+        sessionManager.enterAppCount = countNow.plus(1)
+    }
+
+    override suspend fun getCountEnter(): Int {
+        return sessionManager.enterAppCount
+    }
+
+    override suspend fun resetCountData() {
+        sessionManager.enterAppCount = 0
+    }
 }

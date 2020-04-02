@@ -5,5 +5,7 @@
         <value>2</value>
         <key>file_download</key>
         <value>https://appcoronavirus.com/</value>
+        <key>count_show_share</key>
+        <value>5</value>
     </entry>
 </defaultsMap>

@@ -46,6 +46,8 @@
     <!-- Share -->
     <string name="share_app">Share app</string>
     <string name="share_text">See the latest global cases of Covid-19 in America, Europe, Africa and Oceania. 🌎\n\nDownload the application here 👉 https://appcoronavirus.com\n\nAlso learn about the symptoms of this virus to take the necessary precautions and have an emergency guide handy in case you suspect you are infected or someone close to you is.</string>
+    <string name="share_app_message">If our app is really useful to you. You would help us a lot by sharing it with your friends or people who need it. Thank you!</string>
+    <string name="share_app_now">Share now</string>
 
     <!-- Download -->
     <string name="dialog_default_cancel">Cancel</string>
