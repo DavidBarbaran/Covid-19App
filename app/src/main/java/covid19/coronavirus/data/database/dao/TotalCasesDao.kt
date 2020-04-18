@@ -10,7 +10,7 @@ import covid19.coronavirus.model.TotalResponse
 interface TotalCasesDao {
 
     @Query("SELECT * FROM TotalResponse LIMIT 1")
-    fun getTotalCases(): TotalResponse
+    fun getTotalCases(): TotalResponse?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(totalResponse: TotalResponse)
