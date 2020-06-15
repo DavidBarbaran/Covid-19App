@@ -46,6 +46,8 @@
     <!-- Share -->
     <string name="share_app">Compartir app</string>
     <string name="share_text">Vea los últimos casos a nivel global del Coronavirus (Covid 19) en America, Europa, África y Oceanía. 🌎\n\nDescarga la app aquí 👉 https://appcoronavirus.com\n\nAdemás infórmate sobre los síntomas de este virus para tomar las precauciones necesarios y ten a la mano una guía de emergencia en caso de que sospeches estar contagiado o alguien cercano a ti lo este.</string>
+    <string name="share_app_message">Si nuestra app te es realmente útil. Nos ayudarias mucho compartiendola con tus amigos o personas que lo necesiten. Gracias!</string>
+    <string name="share_app_now">Compartir</string>
 
     <!-- Download -->
     <string name="dialog_default_cancel">Cancelar</string>

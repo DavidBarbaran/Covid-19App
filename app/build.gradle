@@ -34,6 +34,7 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
             buildConfigField "String", "KEY_VERSION_CODE", "\"version_code\""
             buildConfigField "String", "KEY_FILE_DOWNLOAD", "\"file_download\""
+            buildConfigField "String", "COUNT_SHOW_SHARE", "\"count_show_share\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }
         debug {
@@ -43,6 +44,7 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://corona.lmao.ninja/\""
             buildConfigField "String", "KEY_VERSION_CODE", "\"version_code\""
             buildConfigField "String", "KEY_FILE_DOWNLOAD", "\"file_download\""
+            buildConfigField "String", "COUNT_SHOW_SHARE", "\"count_show_share\""
             manifestPlaceholders = [mapApiKeyValue: "api_key"]
         }
     }

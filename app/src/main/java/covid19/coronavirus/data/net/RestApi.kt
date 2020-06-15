@@ -5,16 +5,17 @@ import covid19.coronavirus.model.CountryResponse
 import covid19.coronavirus.model.TotalResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Response
 import retrofit2.http.GET
 import java.util.concurrent.TimeUnit
 
 interface RestApi {
 
-    @GET("countries")
-    suspend fun getCurrent(): MutableList<CountryResponse>
+    @GET("v2/countries")
+    suspend fun getCurrent(): Response<MutableList<CountryResponse>>
 
-    @GET("all")
-    suspend fun getTotal(): TotalResponse
+    @GET("v2/all")
+    suspend fun getTotal(): Response<TotalResponse>
 
     companion object {
         private const val TIMEOUT_READ = 40L
