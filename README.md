@@ -57,11 +57,11 @@ Found a bug or a problem on a specific feature? Open an issue on  [Github issues
 
 ### References & credits
 
-Thanks for data 👉 
+Thanks for data :chart_with_downwards_trend:
 
 [CSSE](https://github.com/CSSEGISandData/COVID-19)
 
-Thanks for API 👉 
+Thanks for API :computer: 
 
 [NovelCOVID](https://github.com/NovelCOVID)
 
