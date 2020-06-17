@@ -57,6 +57,11 @@ Found a bug or a problem on a specific feature? Open an issue on  [Github issues
 
 ### References & credits
 
-Thanks for data 👉 [CSSE](https://github.com/CSSEGISandData/COVID-19)
+Thanks for data 👉 
 
-Thanks for API 👉 [Nuttaphat Arunoprayoch](https://github.com/nat236919/Covid2019API)
+[CSSE](https://github.com/CSSEGISandData/COVID-19)
+
+Thanks for API 👉 
+
+[NovelCOVID](https://github.com/NovelCOVID)
+[Nuttaphat Arunoprayoch](https://github.com/nat236919)
